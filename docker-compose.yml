@@ -1,5 +1,6 @@
 grafana:
     image: matisq/grafana:latest
+    container_name: grafana
     ports: 
         - 3000:3000
     links:
@@ -28,11 +29,12 @@ grafana-data:
 
 influxdb:
     image: matisq/influxdb:latest
+    container_name: influxdb
     ports:
         - 8083:8083
         - 8086:8086
     environment:
-        INFLUX_DATABASE: "telegraf"
+        INFLUX_DATABASE: "jmeter"
         INLFUX_ADMIN_USER: "grafana"
         INFLUX_ADMIN_PASS: "grafana"
     volumes_from:
@@ -43,17 +45,3 @@ influxdb-data:
     tty: true
     volumes:
         - /var/lib/influxdb
-
-telegraf:
-    image: matisq/telegraf:latest
-    links:
-        - influxdb:influxdb
-    environment:
-        HOST_NAME: "telegraf"
-        INFLUXDB_HOST: "influxdb"
-        INFLUXDB_PORT: "8086"
-        DATABASE: "telegraf"
-    tty: true
-    volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-    privileged: true
