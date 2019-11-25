@@ -1,11 +1,8 @@
-# Telegraf InfluxDB Grafana Stack
+# Jmeter Grafana
 
  
 
-## What if I don't want to use Rancher?
-
-
-Install vagrant and Virtualbox
+Install vagrant and Virtualbox at Local / PC
 
 
 Clone Repository
