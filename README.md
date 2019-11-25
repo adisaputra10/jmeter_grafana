@@ -22,6 +22,7 @@ vagrant ssh
 Running Docker
 ```bash
 sudo su && cd /vagrant/jmeter_grafana
+docker-compose up -d
 wait 10 minutes
 username grafana : admin
 password grafana : admin
