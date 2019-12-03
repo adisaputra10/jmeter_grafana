@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-#  config.vm.provision "shell", inline: "apt-get update && apt-get install -y  docker.io docker-compose "
+  config.vm.provision "shell", inline: "apt-get update && apt-get install -y  docker.io docker-compose "
   config.vm.define "master" do |master|
     master.vm.box = "ubuntu/xenial64"
 	  master.vm.boot_timeout = 600
